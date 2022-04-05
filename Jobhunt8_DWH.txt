@@ -1,0 +1,64 @@
+DWH(Data Ware house)
+
+What is DWH?
+Data Ware house is defined as 
+	Subject oriented : This is used to analsye single subject area.
+	Integarted : This shows that you can integrate data from diffrent sources
+	time varient :Historical data can be maintained and retrival of data can be of any period of time.
+	No-Volatile collection of data : once the data is stored inside DWH then we can't alter the data.
+for decison making.
+
+Data warehouse concepts 
+1.OLTP(Online Processing system}
+
+OLTP is nothing but adatabase which actually stores the daily transactions which is called as current data.
+OLTP is used for more of  online applications where application needs to update very frequently in order to maintain consistency in data.
+
+OLTP dealactus with large amount of data.
+
+2.OLAP (Online Analytical processing)
+OLAP deals with analytical data for decesion making and planning.
+This actually deals with aggregations and data in OLAP will be from diffrent sources.
+
+OLAP deals with relatively small amount of data.
+
+data mart(DM)
+DM is nothing but the smallest version of DWH.
+DM deals with single subject area.
+
+
+Types 
+1.dependent
+2.independent
+3.Hybrid DM
+
+DataWarehousing concepts 
+
+
+DTA MODEL:-
+Data Models tells how the logical structure is designed.
+Data models are fundamental entities to introduce database management system.
+data model define how data is connected to each other and how it will be processed and stored inside the system.
+
+
+1.conceptual model
+This will interpret highest level of relationship between entities 
+	> Display important entities and relationship amomng them.
+	> No attrubutes 
+	> No primary keys
+
+2.logical model
+Logical data model defines the data as much as possible , it will show how they can be physically implemented in the database.
+	> Display important entities and attributes and relationship amomng them.
+	> Primary Key of each entities is specified.
+	> If foreign keys exists for each entities then specified.
+	> Normalization is performed 
+
+3.physical model
+Physical model defines how the model physically exist in the system.
+	> Display all the tables and columns
+	> Display foreign keys
+	> Chnage relationship into foreign keys
+	> entity becomes table
+	> attrubute becomes columns and defined data types 
+

@@ -1,0 +1,599 @@
+
+swapnil@DESKTOP-IHC0TL7:~$ cat > file
+1
+2
+3
+4
+^C
+swapnil@DESKTOP-IHC0TL7:~$ cat > file
+1
+^C
+swapnil@DESKTOP-IHC0TL7:~$ cat> file
+1
+2
+3 4 5 6 7 8 9
+10 11 12 13 14
+15 16 17 18 19 20
+^C
+swapnil@DESKTOP-IHC0TL7:~$ awk '{print $2}' file
+
+
+4
+11
+16
+swapnil@DESKTOP-IHC0TL7:~$ awk '{print $1}'
+file
+file
+^C
+swapnil@DESKTOP-IHC0TL7:~$ awk '{print $1}' file
+1
+2
+3
+10
+15
+swapnil@DESKTOP-IHC0TL7:~$ cat > file
+1 2 3 4 5 6
+7 8 9 10 11 12
+13 14 15 16 17
+18 19 20 21 22
+^C
+swapnil@DESKTOP-IHC0TL7:~$ awk 'NR>2 && NR<=4' file
+13 14 15 16 17
+18 19 20 21 22
+swapnil@DESKTOP-IHC0TL7:~$ awk 'NR>1 && NR<5' file
+7 8 9 10 11 12
+13 14 15 16 17
+18 19 20 21 22
+swapnil@DESKTOP-IHC0TL7:~$ awk 'NR =2 ' file
+1 2 3 4 5 6
+7 8 9 10 11 12
+13 14 15 16 17
+18 19 20 21 22
+swapnil@DESKTOP-IHC0TL7:~$ awk '{ print $0 "UNIX"}' file
+1 2 3 4 5 6UNIX
+7 8 9 10 11 12 UNIX
+13 14 15 16 17UNIX
+18 19 20 21 22UNIX
+swapnil@DESKTOP-IHC0TL7:~$ awk '{print $1 "Unix"}' file
+1Unix
+7Unix
+13Unix
+18Unix
+swapnil@DESKTOP-IHC0TL7:~$ awk '{print "unix"}' file
+unix
+unix
+unix
+unix
+swapnil@DESKTOP-IHC0TL7:~$ awk '{print $-1 "unix"}' file
+awk: cmd. line:1: (FILENAME=file FNR=1) fatal: attempt to access field -1
+swapnil@DESKTOP-IHC0TL7:~$ awk '{ print $0 "unix"}' file
+1 2 3 4 5 6unix
+7 8 9 10 11 12 unix
+13 14 15 16 17unix
+18 19 20 21 22unix
+swapnil@DESKTOP-IHC0TL7:~$ awk '{print "unix" $0}' file
+unix1 2 3 4 5 6
+unix7 8 9 10 11 12
+unix13 14 15 16 17
+unix18 19 20 21 22
+swapnil@DESKTOP-IHC0TL7:~$ cat file
+1 2 3 4 5 6
+7 8 9 10 11 12
+13 14 15 16 17
+18 19 20 21 22
+swapnil@DESKTOP-IHC0TL7:~$ cut -b 3 file
+2
+8
+
+
+swapnil@DESKTOP-IHC0TL7:~$ cut -b 1 file
+1
+7
+1
+1
+swapnil@DESKTOP-IHC0TL7:~$ cut -b 4 file
+
+
+1
+1
+swapnil@DESKTOP-IHC0TL7:~$ ls -l
+total 0
+drwxr-xr-x 1 swapnil swapnil 512 Mar 13 11:01 26
+-rw-r--r-- 1 swapnil swapnil   0 Mar 14 15:59 SQL
+-rw-r--r-- 1 swapnil swapnil   8 Mar 14 11:56 amol
+-rw-r--r-- 1 swapnil swapnil  58 Mar 16 09:54 file
+-rw-r--r-- 1 swapnil swapnil  81 Mar  9 11:27 moretest
+drwxr-xr-x 1 swapnil swapnil 512 Mar  9 10:33 nest
+-rw-r--r-- 1 swapnil swapnil  51 Mar 14 11:30 new1
+-rw-r--r-- 1 swapnil swapnil  87 Mar 14 16:01 swap.txt
+-rw-r--r-- 1 swapnil swapnil  96 Mar 16 08:44 swap1
+-rw-r--r-- 1 swapnil swapnil  40 Mar 14 11:52 test
+swapnil@DESKTOP-IHC0TL7:~$ ls
+26  SQL  amol  file  moretest  nest  new1  swap.txt  swap1  test
+swapnil@DESKTOP-IHC0TL7:~$ swap.txt
+swap.txt: command not found
+swapnil@DESKTOP-IHC0TL7:~$ ^C
+swapnil@DESKTOP-IHC0TL7:~$ cat swap.txt
+this is secont file murge it int to swap.txt
+swapnil
+amol
+durgesh
+puja
+priyanka
+disha
+
+swapnil@DESKTOP-IHC0TL7:~$ cut -b 3 swap.txt
+i
+a
+o
+r
+j
+i
+s
+
+swapnil@DESKTOP-IHC0TL7:~$ cut -b 1 swap.txt
+t
+s
+a
+d
+p
+p
+d
+
+swapnil@DESKTOP-IHC0TL7:~$ cut -c 2 swap.txt
+h
+w
+m
+u
+u
+r
+i
+
+swapnil@DESKTOP-IHC0TL7:~$ ls
+26  SQL  amol  file  moretest  nest  new1  swap.txt  swap1  test
+swapnil@DESKTOP-IHC0TL7:~$ cat swap.txt
+this is secont file murge it int to swap.txt
+swapnil
+amol
+durgesh
+puja
+priyanka
+disha
+
+swapnil@DESKTOP-IHC0TL7:~$ cut -c 1 swap.txt
+t
+s
+a
+d
+p
+p
+d
+
+swapnil@DESKTOP-IHC0TL7:~$ cut -c 3 swap.txt
+i
+a
+o
+r
+j
+i
+s
+
+swapnil@DESKTOP-IHC0TL7:~$ cut -b 2-4 swap.txt
+his
+wap
+mol
+urg
+uja
+riy
+ish
+
+swapnil@DESKTOP-IHC0TL7:~$ cut -b 1, 3, 5 swap.txt
+cut: byte/character positions are numbered from 1
+Try 'cut --help' for more information.
+swapnil@DESKTOP-IHC0TL7:~$ cut -b 1,3,5 swap.txt
+ti
+san
+ao
+dre
+pj
+pia
+dsa
+
+swapnil@DESKTOP-IHC0TL7:~$ cut -d ' ' -f2 file
+2
+8
+14
+19
+swapnil@DESKTOP-IHC0TL7:~$ ls
+26  SQL  amol  file  moretest  nest  new1  swap.txt  swap1  test
+swapnil@DESKTOP-IHC0TL7:~$ cat swap1
+swapnil is good boy
+hitesh is also good boy
+ankita is also goog girl
+we are leaving in nagpur
+swapnil@DESKTOP-IHC0TL7:~$ cut -d ' ' -f2 swap1
+is
+is
+is
+are
+swapnil@DESKTOP-IHC0TL7:~$ cat swap1
+swapnil is good boy
+hitesh is also good boy
+ankita is also goog girl
+we are leaving in nagpur
+swapnil@DESKTOP-IHC0TL7:~$ vi swap1
+
+[1]+  Stopped                 vi swap1
+swapnil@DESKTOP-IHC0TL7:~$ vi swap
+
+[2]+  Stopped                 vi swap
+swapnil@DESKTOP-IHC0TL7:~$ cat swap1
+swapnil is good boy
+hitesh is also good boy
+ankita is also goog girl
+we are leaving in nagpur
+swapnil@DESKTOP-IHC0TL7:~$ exit
+logout
+There are stopped jobs.
+swapnil@DESKTOP-IHC0TL7:~$ exit()
+> ^C
+swapnil@DESKTOP-IHC0TL7:~$
+
+
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main1)
+$ https://screenrec.com/share/N5mPbtGeEX^C
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main1)
+$ git checkout main
+Switched to branch 'main'
+M       unix.txt
+Your branch is up to date with 'origin/main'.
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   unix.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git checkout unix.txt
+Updated 1 path from the index
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git reset
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git commit -m "jghd"
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git add unix.txt
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git add unix.txt
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git commit -m "new change"
+[main a9444f9] new change
+ 1 file changed, 4 insertions(+)
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ cat > django
+this is the django file
+it is use for us in real time
+in it industry
+
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git clone https://github.com/8888393858/8888393858.git
+Cloning into '8888393858'...
+remote: Enumerating objects: 16, done.
+remote: Counting objects: 100% (16/16), done.
+remote: Compressing objects: 100% (10/10), done.
+remote: Total 16 (delta 3), reused 7 (delta 2), pack-reused 0
+Receiving objects: 100% (16/16), 4.10 KiB | 466.00 KiB/s, done.
+Resolving deltas: 100% (3/3), done.
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git add django
+warning: LF will be replaced by CRLF in django.
+The file will have its original line endings in your working directory
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git commit -m "its forword file"
+[main 51c8337] its forword file
+ 1 file changed, 3 insertions(+)
+ create mode 100644 django
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        8888393858/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git reset --soft head~1
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   django
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        8888393858/
+
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git add django
+warning: LF will be replaced by CRLF in django.
+The file will have its original line endings in your working directory
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git commit -m
+error: switch `m' requires a value
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git commit -m "jhio"
+[main 83e6248] jhio
+ 1 file changed, 12 insertions(+)
+ create mode 100644 django
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        8888393858/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git reset --soft head~1
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git reset
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        8888393858/
+        django
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git add django
+warning: LF will be replaced by CRLF in django.
+The file will have its original line endings in your working directory
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   django
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        8888393858/
+
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git commit-m "jknd"
+git: 'commit-m' is not a git command. See 'git --help'.
+
+The most similar command is
+        commit-tree
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   django
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        8888393858/
+
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git reset --soft head~1
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   django
+        modified:   unix.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        8888393858/
+
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git reset django
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   unix.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        8888393858/
+        django
+
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git add django
+warning: LF will be replaced by CRLF in django.
+The file will have its original line endings in your working directory
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git commit -m "jhuuhfe"
+[main 6dd5c47] jhuuhfe
+ 2 files changed, 16 insertions(+)
+ create mode 100644 django
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git add django
+warning: LF will be replaced by CRLF in django.
+The file will have its original line endings in your working directory
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   django
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        8888393858/
+
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git log
+commit 6dd5c47c584fb1f66996f1501d157e13e697c9bd (HEAD -> main)
+Author: Your Name <swapnilthul2307@gmail.com>
+Date:   Wed Mar 16 17:32:08 2022 +0530
+
+    jhuuhfe
+
+commit 4671398b52c70f63aa9d221589db658e28bbb68b (origin/main, origin/HEAD)
+Author: Your Name <swapnilthul2307@gmail.com>
+Date:   Wed Mar 16 12:13:23 2022 +0530
+
+    New file created
+
+commit f9cc15c2138efba014a2d10371c8e7d118875496
+Author: 8888393858 <101458346+8888393858@users.noreply.github.com>
+Date:   Wed Mar 16 12:00:46 2022 +0530
+
+    Create python26
+
+commit ee8fbd76c00c3922fe7ff345dccb2b1091f908d4
+Author: 8888393858 <101458346+8888393858@users.noreply.github.com>
+Date:   Sat Mar 12 18:00:50 2022 +0530
+
+    first file
+
+commit c681b387282b6052a38769629fabc55b24637409
+Author: 8888393858 <101458346+8888393858@users.noreply.github.com>
+Date:   Sat Mar 12 17:22:44 2022 +0530
+
+    Create README.md
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ ^C
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git reset --hard head~1
+HEAD is now at 4671398 New file created
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        8888393858/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+HP@DESKTOP-IHC0TL7 MINGW64 ~/OneDrive/Desktop/Swapnil/8888393858 (main)
+$
+
